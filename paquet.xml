@@ -1,0 +1,55 @@
+<paquet
+	prefix="cryptocaptcha"
+	categorie="performance"
+	version="1.0.0"
+	etat="stable"
+	compatibilite="[v3;["
+	logo="images/logo.png"
+	documentation=""
+	schema="1.0.0" 
+	
+>
+	<!--
+		Paquet généré le 2018-01-11 10:18:40
+		(Vous pouvez bien entendu supprimer ces commentaires) 
+	-->
+
+	<nom>cryptocaptcha</nom>
+	<!-- cryptocaptcha -->
+
+	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
+	<auteur lien="https://benjaminlartigue.wordpress.com/">Lartigue Benjamin</auteur>
+	<auteur lien="http://lilian-etchepare.com/">Etchepare Lilian</auteur>
+	<auteur lien="http://www.e-creatures.com/"> ecreatures</auteur>
+
+	<licence>GNU/GPL</licence>
+
+
+	<!--
+		Exemple de commandes
+		* dependances
+		<necessite nom="saisies" compatibilite="[2.4.0;]" />
+		<utilise nom="saisies" compatibilite="[2.4.0;]" />
+		<lib nom="simplehtmldom" lien="http://chemin_vers_archive.zip" />
+		* pipelines
+		<pipeline nom="autoriser" inclure="cryptocaptcha_autorisations.php" />
+		<pipeline nom="insert_head" inclure="cryptocaptcha_pipelines.php" />
+		* declarer un pipeline 
+		<pipeline nom="mon_pipeline" action="" />
+		* parents de menus de SPIP :
+				menu_accueil (à éviter), menu_edition, menu_publication,
+				menu_activite, menu_squelette, menu_administration, menu_configuration 
+		<menu nom="cryptocaptcha" titre="cryptocaptcha:cryptocaptcha_titre" parent="menu_edition"  icone="images/cryptocaptcha-16.png" />
+		* parents d'onglets... configuration, plugins, statistiques, ... 
+		<onglet nom="cryptocaptcha" titre="cryptocaptcha:cryptocaptcha_titre" parent="configuration" icone="images/cryptocaptcha-24.png" />
+	-->
+
+	<pipeline nom="insert_head" inclure="cryptocaptcha_pipelines.php"/> 
+
+	<pipeline nom="autoriser" inclure="cryptocaptcha_autorisations.php" /> 
+
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/cryptocaptcha.php" /> 
+	<pipeline nom="declarer_tables_interfaces" inclure="base/cryptocaptcha.php" /> 
+
+	<menu nom="captcha" titre="captcha:titre_captcha" parent="menu_edition" icone="images/captcha-16.png" action="captcha" /> 
+</paquet>

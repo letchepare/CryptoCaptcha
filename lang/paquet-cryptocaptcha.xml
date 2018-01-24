@@ -1,0 +1,8 @@
+<traduction module="paquet-cryptocaptcha" gestionnaire="salvatore" reference="fr">
+	<langue code="en"  total="2" traduits="2" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Benjamin Lartigue" lien="https://benjaminlartigue.wordpress.com/" />
+	</langue>
+	<langue code="fr" total="2" traduits="2" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Lilian Etchepare" lien="http://lilian-etchepare.com/" />
+	</langue>
+</traduction>

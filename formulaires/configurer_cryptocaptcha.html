@@ -1,0 +1,67 @@
+<!-- autoriser=configurer -->
+<!-- refus=<:cfg:refus_configuration_administrateur:> -->
+<!-- nom=Cryptocaptcha -->
+<BOUCLE_recupcle(spip_captcha){id=1}>
+#SET{clePrivee,#CLEPRIVEE}
+#SET{cleSite,#CLESITE}
+</BOUCLE_recupcle>
+<div class="formulaire_spip formulaire_cfg formulaire_#FORM">
+	<h3 class='titrem'>[(#CHEMIN{images/logo.png}|image_reduire{24}|inserer_attribut{class,cadre-icone}|inserer_attribut{alt,''})]<:cryptocaptcha:titre_config_cryptocaptcha:></h3>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	<form method="post" action="#ENV{action}">
+		<div>
+			#ACTION_FORMULAIRE{#ENV{action}}
+			<ul>
+				#SET{erreurs,#ENV**{erreurs}|table_valeur{barretypo}}
+				<li class="fieldset fieldset_cryptocaptcha_prive">
+					<h3 class="legend"><:cryptocaptcha:legend_choisir_captcha:></h3>
+					<ul>
+						<BOUCLE_recuptype(spip_captcha){id=1}>
+							[(#TYPE|=={google}|oui)
+								<input type="radio" id="Typeg" name= "type" value="google" checked>
+								<label for="Typeg"><:cryptocaptcha:legend_radio_google:></label>
+								<input type="radio" id="Typec" name= "type" value="coinhive">
+								<label for="Typec"><:cryptocaptcha:legend_radio_coinhive:></label>
+								<p></p>
+							]
+							[(#TYPE|=={coinhive}|oui)
+								<input type="radio" id="Typeg" name= "type" value="google" >
+								<label for="Typeg"><:cryptocaptcha:legend_radio_google:></label>
+								<input type="radio" id="Typec" name= "type" value="coinhive" checked>
+								<label for="Typec"><:cryptocaptcha:legend_radio_coinhive:></label>
+								<p></p>
+							]
+						</BOUCLE_recuptype>
+						
+						<li class="fieldset fieldset_cryptocaptcha_prive">
+							<h3 class="legend"><:cryptocaptcha:legend_editer_cleprive:></h3>
+							<ul>
+								#SET{erreurs,#ENV**{erreurs}|table_valeur{saisieClePrivee}}
+								<li class="editer editer_exec_autorise[ (#GET{erreurs}|oui)erreur]">
+									<label><:cryptocaptcha:label_exec_cleprive:></label>
+									[<span class='erreur_message'>(#GET{erreurs})</span>]
+									<p class='explication'><:cryptocaptcha:explication_exec_cleprive:></p>
+									<input type="text" name="saisieClePrivee" class="text"  id='saisieClePrivee' value="#GET{clePrivee}"/>
+								</li>
+							</ul>
+						</li>
+						<li class="fieldset fieldset_cryptocaptcha_prive">
+							<h3 class="legend"><:cryptocaptcha:legend_editer_clesite:></h3>
+							<ul>
+								#SET{erreurs,#ENV**{erreurs}|table_valeur{saisieCleSite}}
+								<li class="editer editer_exec_autorise[ (#GET{erreurs}|oui)erreur]">
+									<label><:cryptocaptcha:label_exec_clesite:></label>
+									[<span class='erreur_message'>(#GET{erreurs})</span>]
+									<p class='explication'><:cryptocaptcha:explication_exec_cleSite:></p>
+									<input type="text" name="saisieCleSite" class="text"  id='saisieCleSite' value="#GET{cleSite}" />
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="boutons">
+						<input style="text-align: right;" type="submit" name="_cfg_ok" value="<:bouton_enregistrer:>" class="submit" />
+					</p>
+				</div>
+			</form>
+		</div>

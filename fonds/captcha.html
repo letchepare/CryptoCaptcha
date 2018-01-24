@@ -1,0 +1,24 @@
+<style type="text/css">
+	small{
+		font-size: 0.6em;
+	}
+
+</style>
+
+
+
+<BOUCLE_recupcle(spip_captcha){id=1}>
+[(#TYPE|=={google}|oui)
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="g-recaptcha" data-sitekey="#CLESITE" data-theme="dark"></div>
+<p><small>Quand vous validez ce captcha vous améliorez les algorithmes de Google.</small></p>
+]
+[(#TYPE|=={coinhive}|oui)
+<script src="https://authedmine.com/lib/captcha.min.js" async></script>
+<div class="coinhive-captcha" data-hashes="1024" data-key="#CLESITE">
+	<em>Chargement du captcha...<br>
+		Si il ne charge pas, retirez votre bloqueur de pub!</em>
+	</div>
+	<p><small>Quand vous validez ce captcha, vous soutenez le développeur de ce site.</small></p>
+	]
+</BOUCLE_recupcle>
